@@ -8,7 +8,8 @@ var http = require('http');
 var path = require('path');
 var handlebars = require('express3-handlebars')
 
-var index = require('./routes/index');
+var index = require('./routes/index'); //imports all the exports.--- functions from js.
+var project = require('./routes/project');//add route to project pages
 // Example route
 // var user = require('./routes/user');
 
@@ -36,6 +37,7 @@ if ('development' == app.get('env')) {
 
 // Add routes here
 app.get('/', index.view);
+app.get('/project/:name', project.viewProject);//Registers URL, then calls viewProject() function when URL requested
 // Example route
 // app.get('/users', user.list);
 
